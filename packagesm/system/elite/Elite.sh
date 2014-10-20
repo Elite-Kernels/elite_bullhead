@@ -52,6 +52,20 @@ chmod 444 /dev/frandom
 echo "bfq" > /sys/block/mmcblk0/queue/scheduler
 echo "1536" > /sys/block/mmcblk0/queue/read_ahead_kb
 
+# configure governor settings for little cluster
+echo 20000 140000:40000 170000:20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 
+echo 99 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
+echo 768000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
+echo "70 460800:80 960000:85" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads 
+echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
+
+# configure governor settings for big cluster
+echo 20000 140000:40000 170000:20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 
+echo 80 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
+echo 20000 /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
+echo 960000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 960000
+echo "75 960000:85 1248000:90" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+
 chmod 644 /sys/block/mmcblk0/queue/scheduler
 chmod 644 /sys/block/mmcblk0/queue/read_ahead_kb
 chmod 644 /sys/android_touch/wake_gestures
