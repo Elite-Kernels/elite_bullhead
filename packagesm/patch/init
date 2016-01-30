@@ -1,0 +1,7 @@
+# Execute files in /system/elite/ before booting
+service elite-sh /system/bin/sh /system/elite/Elite.sh
+    oneshot
+    class late_start
+    user root
+	group root
+    
