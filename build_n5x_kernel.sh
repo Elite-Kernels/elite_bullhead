@@ -28,7 +28,7 @@
 
   z=$c-$today
 
-TOOLCHAIN=/home/forrest/kernel/linaro-5.2-aarch64/bin/aarch64-linux-gnu-
+TOOLCHAIN=/home/forrest/kernel/linaro-4.9-aarch64/bin/aarch64-linux-android-
 export ARCH=arm64
 export SUBARCH=arm64
 
