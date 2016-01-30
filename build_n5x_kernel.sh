@@ -29,8 +29,8 @@
   z=$c-$today
 
 TOOLCHAIN=/home/forrest/kernel/linaro-5.2-aarch64/bin/aarch64-linux-gnu-
-export ARCH=arm
-export SUBARCH=arm
+export ARCH=arm64
+export SUBARCH=arm64
 
 # make mrproper
 #make CROSS_COMPILE=$TOOLCHAIN -j`grep 'processor' /proc/cpuinfo | wc -l` mrproper
