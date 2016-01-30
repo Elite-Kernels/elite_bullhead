@@ -62,10 +62,10 @@ write_boot() {
     secondoff=`cat *-secondoff`;
     secondoff="--second_offset $secondoff";
   fi;
-  if [ -f /tmp/anykernel/zImage-dtb ]; then
-    kernel=/tmp/anykernel/zImage-dtb;
+  if [ -f /tmp/anykernel/Image.gz-dtb ]; then
+    kernel=/tmp/anykernel/Image.gz-dtb;
   else
-    kernel=`ls *-zImage-dtb`;
+    kernel=`ls *-Image.gz-dtb`;
     kernel=$split_img/$kernel;
   fi;
   cd $ramdisk;
