@@ -11,7 +11,7 @@ do.cleanup=1
 device.name1=bullhead
 
 # shell variables
-block=/dev/block/platform/msm_sdcc.1/by-name/boot;
+block=/dev/block/platform/soc.0/f9824900.sdhci/by-name/boot;
 
 ## end setup
 
