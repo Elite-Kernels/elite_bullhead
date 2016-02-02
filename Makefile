@@ -1,10 +1,6 @@
 VERSION = 3
 PATCHLEVEL = 10
-<<<<<<< HEAD
-SUBLEVEL = 95
-=======
 SUBLEVEL = 96
->>>>>>> remotes/linux/linux-3.10.y
 EXTRAVERSION =
 NAME = TOSSUG Baby Fish
 
