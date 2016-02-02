@@ -191,7 +191,6 @@ static const struct usb_device_id usb_interface_quirk_list[] = {
 	/* Blackmagic Design UltraStudio SDI */
 	{ USB_DEVICE(0x1edb, 0xbd4f), .driver_info = USB_QUIRK_NO_LPM },
 
-
 	{ }  /* terminating entry must be last */
 };
 
