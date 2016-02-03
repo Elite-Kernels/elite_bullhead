@@ -10,12 +10,6 @@ chmod 666 /sys/android_touch/vib_strength
 chmod 444 /dev/erandom
 chmod 444 /dev/frandom
 
-# Prevent min freq from being changed by MPD
-#echo N > /sys/module/cpufreq/parameters/allow_minup
-
-# Prevent Thermal from changing max freq
-#echo N > /sys/module/msm_thermal/parameters/full_fm
-
 #Set Wake Gestures - dont change
  #disable = 0
  #enable = 1
@@ -55,38 +49,8 @@ chmod 444 /dev/frandom
   echo 0 > /sys/kernel/fast_charge/force_fast_charge
 
 #Set IO read ahead
-echo "deadline" > /sys/block/mmcblk0/queue/scheduler
+echo "bfq" > /sys/block/mmcblk0/queue/scheduler
 echo "1536" > /sys/block/mmcblk0/queue/read_ahead_kb
-
-#Set CPU Min Frequencies
-echo 300000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-echo 300000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-echo 300000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
-echo 300000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
-
-#Set CPU Max Frequencies
-echo 2649600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-echo 2649600 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-echo 2649600 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
-echo 2649600 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
-
-#Enable Zen Decision
-# stop mpdecision
-echo 0 > /sys/kernel/zen_decision/enabled
-echo 500 > /sys/kernel/zen_decision/wake_wait_time
-
-# Set Wakelocks
- # echo 0 > /sys/module/bcmdhd/parameters/wlrx_divide
- echo 8 > /sys/module/bcmdhd/parameters/wlrx_divide
- # echo 0 > /sys/module/bcmdhd/parameters/wlctrl_divide
- echo 8 > /sys/module/bcmdhd/parameters/wlctrl_divide
- # echo 0 > /sys/module/xhci_hcd/parameters/wl_divide
- echo 0 > /sys/module/xhci_hcd/parameters/wl_divide
- echo 0 > /sys/module/smb135x_charger/parameters/use_wlock
-
-#Key press during suspend for long press functions
-# 0 to disable - 1 to enable
- echo 0 > /sys/module/input_core/parameters/disable_release_keys
 
 chmod 644 /sys/block/mmcblk0/queue/scheduler
 chmod 644 /sys/block/mmcblk0/queue/read_ahead_kb
