@@ -47,7 +47,7 @@ make -j`grep 'processor' /proc/cpuinfo | wc -l` CROSS_COMPILE=$TOOLCHAIN #>> com
    echo ""
    echo "<<>><<>>  Collecting Image.gz-dtb <<>><<>>"
    echo ""
-   cp $k/arch/arm64/boot/Image.lz4-dtb out/$c/Image.lz4-dtb
+   cp $k/arch/arm64/boot/Image.gz-dtb out/$c/Image.gz-dtb
    done
    
 # Build Zip
