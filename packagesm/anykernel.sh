@@ -198,7 +198,6 @@ chmod -R 755 $ramdisk
 chmod 640 $ramdisk/fstab.bullhead
 #chmod 750 $ramdisk/init.rc
 #chmod 750 $ramdisk/init.bullhead.rc
-chmod 750 $ramdisk/init.bullhead.power.sh
 
 # backup then replace fstab and bullhead.power.rc
 # backup_file fstab.bullhead`;
@@ -207,7 +206,6 @@ chmod 750 $ramdisk/init.bullhead.power.sh
 replace_file fstab.bullhead $ramdisk/fstab.bullhead;
 #replace_file init.rc $ramdisk/init.rc;
 #replace_file init.bullhead.rc $ramdisk/init.bullhead.rc;
-replace_file init.bullhead.power.sh $ramdisk/init.bullhead.power.sh;
 
 
 ## AnyKernel install
@@ -224,7 +222,7 @@ replace_line default.prop "ro.secure=1" "ro.secure=1";
 
 # init.rc
 # backup_file init.rc;
-append_file init.rc "/system/elite" init;
+append_file init.bullhead.rc "/system/elite/Elite.sh" init;
 
 # end ramdisk changes
 
