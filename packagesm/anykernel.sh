@@ -196,7 +196,7 @@ patch_fstab() {
 # set permissions for included files
 chmod -R 755 $ramdisk
 chmod 640 $ramdisk/fstab.bullhead
-#chmod 750 $ramdisk/init.rc
+chmod 750 $ramdisk/sepolicy
 #chmod 750 $ramdisk/init.bullhead.rc
 
 # backup then replace fstab and bullhead.power.rc
@@ -204,7 +204,7 @@ chmod 640 $ramdisk/fstab.bullhead
 # backup_file init.bullhead.rc;
 # backup_file init.bullhead.power.rc;
 replace_file fstab.bullhead $ramdisk/fstab.bullhead;
-#replace_file init.rc $ramdisk/init.rc;
+replace_file sepolicy $ramdisk/sepolicy;
 #replace_file init.bullhead.rc $ramdisk/init.bullhead.rc;
 
 
