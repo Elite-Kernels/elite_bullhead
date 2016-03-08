@@ -38,10 +38,19 @@
 
 extern bool mdss_screen_on;
 
-struct cpufreq_interactive_policyinfo {
-	struct timer_list policy_timer;
-	struct timer_list policy_slack_timer;
-	spinlock_t load_lock; /* protects load tracking stat */
+#ifndef TJK_HMP
+ATOMIC_NOTIFIER_HEAD(migration_notifier_head);
+ATOMIC_NOTIFIER_HEAD(load_alert_notifier_head);
+#endif
+
+struct cpufreq_interactive_cpuinfo {
+	struct timer_list cpu_timer;
+	struct timer_list cpu_slack_timer;
+	spinlock_t load_lock; /* protects the next 4 fields */
+	u64 time_in_idle;
+	u64 time_in_idle_timestamp;
+	u64 cputime_speedadj;
+	u64 cputime_speedadj_timestamp;
 	u64 last_evaluated_jiffy;
 	struct cpufreq_policy *policy;
 	struct cpufreq_frequency_table *freq_table;
