@@ -58,6 +58,9 @@ wmi_unified_attach(void *scn_handle, void (*func) (void*));
 void
 wmi_unified_detach(struct wmi_unified* wmi_handle);
 
+void
+wmi_unified_remove_work(struct wmi_unified* wmi_handle);
+
 /**
  * generic function to allocate WMI buffer
  *
@@ -139,6 +142,8 @@ wmi_get_pending_cmds(wmi_unified_t wmi_handle);
 void
 wmi_set_target_suspend(wmi_unified_t wmi_handle, A_BOOL val);
 
+void wmi_set_tgt_assert(wmi_unified_t wmi_handle, A_BOOL val);
+
 #ifdef FEATURE_RUNTIME_PM
 void
 wmi_set_runtime_pm_inprogress(wmi_unified_t wmi_handle, A_BOOL val);
@@ -155,17 +160,26 @@ static inline bool wmi_get_runtime_pm_inprogress(wmi_unified_t wmi_handle)
 }
 #endif
 
+#ifdef FEATURE_WLAN_D0WOW
 /**
  WMI API to set D0WOW flag
 */
-#ifdef FEATURE_WLAN_D0WOW
 void
 wmi_set_d0wow_flag(wmi_unified_t wmi_handle, A_BOOL flag);
+
+/**
+ WMI API to get D0WOW flag
+*/
+A_BOOL
+wmi_get_d0wow_flag(wmi_unified_t wmi_handle);
 #endif
+
 /**
  WMA Callback to get the Tx complete for WOW_ENABLE
 */
 typedef void (*wma_wow_tx_complete_cbk)(void *scn_handle);
 
 uint16_t wmi_get_max_msg_len(wmi_unified_t wmi_handle);
+
+void wmi_tag_crash_inject(wmi_unified_t wmi_handle, A_BOOL flag);
 #endif /* _WMI_UNIFIED_API_H_ */
