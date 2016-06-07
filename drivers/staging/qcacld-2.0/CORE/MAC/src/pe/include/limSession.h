@@ -125,6 +125,8 @@ typedef struct sPESession           // Added to Support BT-AMP
     tANI_U8                 operMode;               // AP - 0; STA - 1 ;
     tSirNwType              nwType;
     tpSirSmeStartBssReq     pLimStartBssReq;        //handle to smestart bss req
+    bool                    osen_association;
+    bool                    wps_registartion;
     tpSirSmeJoinReq         pLimJoinReq;            // handle to sme join req
     tpSirSmeJoinReq         pLimReAssocReq;         //handle to sme reassoc req
     tpLimMlmJoinReq         pLimMlmJoinReq;         //handle to MLM join Req
@@ -498,6 +500,7 @@ typedef struct sPESession           // Added to Support BT-AMP
     bool add_bss_failed;
     /* Supported NSS is intersection of self and peer NSS */
     bool supported_nss_1x1;
+    bool is_ext_caps_present;
 } tPESession, *tpPESession;
 
 /*-------------------------------------------------------------------------
