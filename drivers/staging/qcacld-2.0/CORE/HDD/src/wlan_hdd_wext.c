@@ -576,11 +576,12 @@ static const struct qwlan_hw qwlan_hw_list[] = {
         .subid = 0x1,
         .name = "QCA93x7_REV1_1",
     },
-    {
+/*    {
         .id = QCA9379_REV1_VERSION,
         .subid = 0xC,
         .name = "QCA9379_REV1",
     }
+*/
 };
 
 int hdd_validate_mcc_config(hdd_adapter_t *pAdapter, v_UINT_t staId,
