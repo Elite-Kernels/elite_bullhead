@@ -37,7 +37,7 @@ chmod 444 /dev/frandom
  #sweep right = 1
  #sweep left = 2
  #sweep left or right = 3
-  echo 2 > /sys/android_touch/sweep2sleep
+  echo 0 > /sys/android_touch/sweep2sleep
 
 #Set Wake Gesture Vibrate strength
 #range 0-20
